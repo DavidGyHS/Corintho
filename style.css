@@ -658,7 +658,7 @@ section {
         grid-template-columns: 1fr;
     }
     .about-card h3 {
-        margin-top: 5px;
+        margin-top: 0;
     }
 }
 
