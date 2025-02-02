@@ -664,8 +664,7 @@ section {
         padding: 5px;
     }
     .about-cards {
-        display: flex;
-        gap: 10px;
+        gap: 20px;
         margin-bottom: 10px;
     }
 }
