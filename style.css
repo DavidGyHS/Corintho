@@ -511,6 +511,7 @@ section {
 @media (max-width: 768px) {
     .service-content {
         flex-direction: column;
+        margin-top: 5px;
     }
     
     .service-image {
