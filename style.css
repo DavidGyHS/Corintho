@@ -219,6 +219,7 @@ section {
     .navbar ul li a {
         font-size: 14px; /* Hacer el texto más pequeño */
         padding: 8px 10px;
+        margin: 0;
     }
 }
 
