@@ -660,14 +660,12 @@ section {
 }
 
 /* WHATSAPP */
-/* WHATSAPP */
 .whatsapp-button {
     position: fixed;
     bottom: 40px;
-    right: 20px;
+    right: 20px; /* Reducido de 40px a 20px */
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color: #25D366;
     color: white;
     padding: 12px 20px;
@@ -676,9 +674,10 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     z-index: 1000;
-    overflow: hidden; /* Previene desbordamiento */
+    /* Añadir estas propiedades */
+    max-width: calc(100% - 40px); /* Evita que el botón se salga de la pantalla */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
 }
-
 .whatsapp-button:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -686,8 +685,8 @@ section {
 }
 
 .whatsapp-icon {
-    width: 24px;
-    height: 24px;
+    width: auto;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -717,14 +716,9 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 20px;
-        width: 60px; /* Tamaño fijo más grande */
-        height: 60px; /* Tamaño fijo más grande */
-        padding: 0; /* Elimina el padding */
-        border-radius: 50%; /* Hace el botón perfectamente circular */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        right: 0px; /* Reducido a 10px */
+        padding: 8px; /* Reducido el padding */
+        justify-content: center; /* Centra el ícono */
     }
     
     .whatsapp-text {
@@ -732,17 +726,10 @@ section {
     }
     
     .whatsapp-icon {
-        margin: 0;
-        width: 32px; /* Icono más grande */
-        height: 32px;
+        right: 0px; /* Elimina el margen */
+        width: auto; /* Ancho fijo del ícono */
+        height: 25px; /* Alto fijo del ícono */
     }
-}
-
-/* Prevenir scroll horizontal en todo el sitio */
-html, body {
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
 }
 
 
