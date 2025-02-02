@@ -537,7 +537,7 @@ section {
 .about-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 20px;
 }
 
 .about-text h2 {
@@ -596,7 +596,7 @@ section {
 }
 
 .values-section {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .values-section h3 {
