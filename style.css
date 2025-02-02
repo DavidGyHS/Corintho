@@ -205,6 +205,79 @@ section {
     padding-top: 20px;
 }
 
+/* Media queries para móviles */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: rgb(22, 22, 22);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 60px;
+        transition: 0.3s ease;
+        gap: 0;
+    }
+
+    .navbar ul.active {
+        right: 0;
+    }
+
+    .navbar ul li {
+        width: 100%;
+    }
+
+    .navbar ul li a {
+        display: block;
+        padding: 15px 25px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar ul li a::after {
+        display: none;
+    }
+
+    /* Animación del botón hamburguesa */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Overlay para cuando el menú está abierto */
+    .navbar::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+    }
+
+    .navbar.menu-open::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
 
 /* PROYECTOS */
 .projects {
