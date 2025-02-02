@@ -5,6 +5,11 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
+/* Evita el desplazamiento horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
 
 /* HEADER */
 .header {
