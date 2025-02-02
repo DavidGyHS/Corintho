@@ -439,10 +439,12 @@ section {
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
+    margin-top: 5px;
     overflow: hidden;
     opacity: 0;
     transform: translateY(50px);
     transition: all 0.6s ease;
+    padding: 0;
 }
 
 .service-category.visible {
@@ -453,13 +455,13 @@ section {
 .service-content {
     display: flex;
     align-items: flex-start;
-    padding: 30px;
+    padding: 15px 30px;
     gap: 30px;
 }
 
 .service-text {
     flex: 1;
-    text-align: justify;
+    text-align: left;
 }
 
 .service-image {
@@ -481,6 +483,7 @@ section {
     color: #007bff;
     font-size: 1.8rem;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .service-category ul {
