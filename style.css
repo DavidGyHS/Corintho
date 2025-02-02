@@ -446,36 +446,71 @@ section {
     text-align: left;
 }
 
-/* Ajustes específicos para el carrusel en móvil */
+/* Estilos base del carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1700px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-images {
+    position: relative;
+    display: flex;
+    transition: transform 1s ease-in-out;
+    gap: 20px;
+    width: 100%;
+}
+
+.carousel-images img {
+    flex-shrink: 0;
+    width: 874px;
+    height: 774px;
+    object-fit: cover;
+    border: 5px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0.5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Media query para móviles */
 @media screen and (max-width: 768px) {
     .carousel {
         height: auto;
-        aspect-ratio: auto;
-        padding: 20px 0;
-    }
-
-    .carousel-images img {
-        width: 90vw; /* Ancho relativo a la ventana */
-        height: auto;
-        max-height: 80vh; /* Altura máxima relativa a la ventana */
-        object-fit: contain; /* Asegura que la imagen se muestre completa */
-        aspect-ratio: auto; /* Permite mantener la proporción original */
+        max-height: 80vh;
+        padding: 10px 0;
     }
 
     .carousel-images {
-        gap: 10px; /* Reduce el espacio entre imágenes en móvil */
-        align-items: center; /* Centra verticalmente las imágenes */
-        padding: 0 5vw; /* Añade un pequeño padding a los lados */
+        gap: 10px;
     }
 
-    /* Ajusta los dots para mejor visibilidad en móvil */
-    .carousel-dots {
-        bottom: 5px;
+    .carousel-images img {
+        width: calc(100vw - 40px); /* Ancho ajustado al viewport menos márgenes */
+        height: auto;
+        max-height: 70vh; /* Altura máxima relativa al viewport */
+        object-fit: contain; /* Asegura que la imagen se muestre completa */
+        border-width: 3px; /* Borde más delgado en móvil */
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .carousel {
+        max-height: 70vh;
     }
 
-    .carousel-dots .dot {
-        width: 10px;
-        height: 10px;
+    .carousel-images img {
+        width: calc(100vw - 30px);
+        max-height: 60vh;
     }
 }
 
