@@ -402,6 +402,16 @@ section {
         object-fit: contain; /* Asegura que la imagen se muestre completa */
         border-width: 3px; /* Borde más delgado en móvil */
     }
+
+    .projects h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .projects h2:after {
+        width: 80%; /* Ajuste del ancho de la línea */
+        max-width: 300px;
+    }
 }
 
 /* Media query para pantallas muy pequeñas */
@@ -522,8 +532,12 @@ section {
 
 @media (max-width: 768px) {
     .services h2:after {
-        width: 100%;
-        max-width: 500px;
+        width: 80%;
+        max-width: 300px;
+    }
+    .services h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
     }
 
     .service-content {
@@ -678,7 +692,7 @@ section {
 
     .about-cards {
         flex-direction: column;
-        gap: 20px 20px;
+        gap: 20px;
     }
 
     .about-card {
