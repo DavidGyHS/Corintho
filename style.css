@@ -720,6 +720,11 @@ section {
     }
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 /* FOOTER */
 .footer {
     background-color: #1a1a1a;
