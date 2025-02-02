@@ -717,7 +717,7 @@ section {
     }
     
     .whatsapp-icon {
-        right: 0;
+        margin-right: 0;
         width: auto;
         height: 25px;
     }
