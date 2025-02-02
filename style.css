@@ -459,7 +459,7 @@ section {
 
 .service-text {
     flex: 1;
-    text-align: justify;
+    text-align: left;
 }
 
 .service-image {
@@ -481,7 +481,7 @@ section {
     color: #007bff;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    margin-top: 5px;
+    margin: 0 auto;
 }
 
 .service-category ul {
