@@ -519,7 +519,7 @@ section {
 }
 
 .service-category li:before {
-    content: '▹';
+    content: '►';
     position: absolute;
     left: 0;
     color: #007bff;
