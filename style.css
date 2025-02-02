@@ -5,11 +5,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
-/* Evita el desplazamiento horizontal */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
+
 
 /* HEADER */
 .header {
@@ -708,7 +704,7 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 20px;
+        right: 0;
         padding: 10px;
     }
     
@@ -719,11 +715,11 @@ section {
     .whatsapp-icon {
         margin-right: 0;
         width: auto;
-        height: 20px;
+        height: 25px;
     }
 }
 
-/* footer */
+/* FOOTER */
 .footer {
     background-color: #1a1a1a;
     color: #fff;
