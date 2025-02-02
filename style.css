@@ -211,7 +211,7 @@ section {
 }
 
 /* 🔹 Ajuste para móviles (Menú más compacto) */
-@media (max-width: 768px) {
+@media (max-width: 668px) {
     .navbar ul {
         gap: 10px; /* Reducir espacio entre elementos */
     }
@@ -701,7 +701,7 @@ section {
 }
 
 /* Versión móvil */
-@media (max-width: 700px) {
+@media (max-width: 668px) {
     .whatsapp-button {
         bottom: 20px;
         right: 0;
