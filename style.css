@@ -658,10 +658,10 @@ section {
         grid-template-columns: 1fr;
     }
     .about-card h3 {
-        margin-top: 0;
+        margin-top: 5px;
     }
     .about-cards {
-        gap: 2px;
+        gap: 10px;
     }
     .about-card {
         padding: 5px;
