@@ -714,8 +714,10 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 0;
-        padding: 10px;
+        margin-right: 0;
+        padding: 10px 10px; /* Reducir padding */
+        max-width: 100%; /* Evitar que se expanda demasiado */
+        overflow: hidden;
     }
     
     .whatsapp-text {
@@ -723,10 +725,16 @@ section {
     }
     
     .whatsapp-icon {
-        right: 0;
+        margin-right: 0;
         width: auto;
         height: 25px;
     }
+}
+
+/* 🔹 Solución para evitar desplazamiento horizontal */
+html, body {
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+    max-width: 100%; /* Limita el ancho máximo de la página */
 }
 
 
