@@ -661,7 +661,10 @@ section {
         margin-top: 0;
     }
     .about-cards {
-        gap: 5px;
+        gap: 2px;
+    }
+    .about-card {
+        padding: 5px;
     }
 }
 
