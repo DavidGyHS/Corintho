@@ -481,7 +481,6 @@ section {
     color: #007bff;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    margin-top: 5px;
 }
 
 .service-category ul {
@@ -511,7 +510,7 @@ section {
 @media (max-width: 768px) {
     .service-content {
         flex-direction: column;
-        margin: 0 auto;
+        margin-top: 0;
     }
     
     .service-image {
