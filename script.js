@@ -85,6 +85,32 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.head.appendChild(styleSheet);
 
+    // Touch events para móviles
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        stopAutoSlide();
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+        touchEndX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', () => {
+        const touchDiff = touchStartX - touchEndX;
+        const minSwipeDistance = 50;
+
+        if (Math.abs(touchDiff) > minSwipeDistance) {
+            if (touchDiff > 0 && currentIndex < images.length - 1) {
+                // Deslizar hacia la izquierda
+                goToImage(currentIndex + 1);
+            } else if (touchDiff < 0 && currentIndex > 0) {
+                // Deslizar hacia la derecha
+                goToImage(currentIndex - 1);
+            }
+        }
+        startAutoSlide();
+    });
+    
     // Inicialización
     updateCarousel();
     startAutoSlide();
