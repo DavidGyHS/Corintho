@@ -734,6 +734,12 @@ section {
     }
 }
 
+/* Prevenir scroll horizontal en todo el sitio */
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
 
 /* FOOTER */
 .footer {
