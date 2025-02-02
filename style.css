@@ -657,6 +657,15 @@ section {
     .values-grid {
         grid-template-columns: 1fr;
     }
+    .about-card h3 {
+        margin-top: 0;
+    }
+    .about-cards {
+        gap: 2px;
+    }
+    .about-card {
+        padding: 5px;
+    }
 }
 
 /* WHATSAPP */
