@@ -660,6 +660,83 @@ section {
 }
 
 @media (max-width: 768px) {
+    .about-text h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .about-text h2:after {
+        width: 80%; /* Ajuste del ancho de la línea */
+        max-width: 300px;
+    }
+
+    .mission {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .about-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-card {
+        padding: 20px;
+        margin-bottom: 0;
+    }
+
+    .about-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .values-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .value-item {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .value-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .team-section {
+        padding: 0 15px;
+    }
+
+    .team-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .team-section p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Ajuste de espacio y márgenes para mejor visualización */
+    .about-container {
+        padding: 15px;
+    }
+
+    .values-section {
+        margin-top: 30px;
+    }
+}
+
+/*
+@media (max-width: 768px) {
     .about-cards {
         flex-direction: column;
     }
@@ -672,6 +749,7 @@ section {
         padding: 10px;
     }
 }
+*/
 
 /* WHATSAPP */
 .whatsapp-button {
