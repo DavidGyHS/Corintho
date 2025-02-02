@@ -721,7 +721,6 @@ section {
         width: 40px; /* Ancho fijo para móviles */
         height: 40px; /* Alto fijo para móviles */
         justify-content: center; /* Centra el ícono */
-        max-width: none; /* Elimina el max-width en móviles */
     }
     
     .whatsapp-text {
