@@ -454,6 +454,7 @@ section {
     display: flex;
     align-items: flex-start;
     padding: 30px;
+    margin-top: 10px;
     gap: 30px;
 }
 
