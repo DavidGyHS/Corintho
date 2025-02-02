@@ -667,6 +667,10 @@ section {
     .values-grid {
         grid-template-columns: 1fr;
     }
+
+    .about-card {
+        padding: 10px;
+    }
 }
 
 /* WHATSAPP */
