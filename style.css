@@ -660,6 +660,9 @@ section {
     .about-container {
         padding: 5px;
     }
+    .about-card {
+        padding: 5px;
+    }
 }
 
 /* WHATSAPP */
