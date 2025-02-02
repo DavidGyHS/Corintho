@@ -512,13 +512,13 @@ section {
 
 @media (max-width: 768px) {
     .services h2:after {
-        width: 80%;
+        width: 100%;
         max-width: 500px;
     }
 
     .service-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 5px;
     }
     
     .service-image {
