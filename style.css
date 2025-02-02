@@ -211,7 +211,7 @@ section {
 }
 
 /* 🔹 Ajuste para móviles (Menú más compacto) */
-@media (max-width: 668px) {
+@media (max-width: 768px) {
     .navbar ul {
         gap: 10px; /* Reducir espacio entre elementos */
     }
@@ -246,7 +246,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
+    width: 400px;
     height: 3px;
     background-color: #007bff;
 }
@@ -429,7 +429,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
+    width: 400px;
     height: 3px;
     background-color: #007bff;
 }
@@ -544,7 +544,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
+    width: 400px;
     height: 3px;
     background-color: #007bff;
 }
@@ -701,7 +701,7 @@ section {
 }
 
 /* Versión móvil */
-@media (max-width: 668px) {
+@media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
         right: 0;
