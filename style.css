@@ -211,7 +211,7 @@ section {
 }
 
 /* 🔹 Ajuste para móviles (Menú más compacto) */
-@media (max-width: 768px) {
+@media (max-width: auto) {
     .navbar ul {
         gap: 10px; /* Reducir espacio entre elementos */
     }
