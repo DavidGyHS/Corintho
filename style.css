@@ -246,7 +246,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 500px;
     height: 3px;
     background-color: #007bff;
 }
@@ -429,7 +429,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 500px;
     height: 3px;
     background-color: #007bff;
 }
@@ -544,7 +544,7 @@ section {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 400px;
+    width: 500px;
     height: 3px;
     background-color: #007bff;
 }
@@ -712,7 +712,7 @@ section {
     }
     
     .whatsapp-icon {
-        margin-right: 0;
+        right: 0;
         width: auto;
         height: 25px;
     }
