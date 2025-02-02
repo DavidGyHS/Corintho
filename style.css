@@ -657,13 +657,7 @@ section {
     .values-grid {
         grid-template-columns: 1fr;
     }
-    .about-card h3 {
-        margin-top: 5px;
-    }
 
-    .about-card {
-        padding: 5px;
-    }
 }
 
 /* WHATSAPP */
