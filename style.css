@@ -714,10 +714,8 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 0; /* En lugar de 0 */
-        padding: 8px 12px; /* Reducir padding */
-        max-width: 50px; /* Evitar que se expanda demasiado */
-        overflow: hidden; /* Evitar que el texto oculto afecte */
+        right: 0;
+        padding: 10px;
     }
     
     .whatsapp-text {
@@ -725,12 +723,11 @@ section {
     }
     
     .whatsapp-icon {
+        margin-right: 0;
         width: auto;
         height: 25px;
-        right: 0;
     }
 }
-
 
 
 /* FOOTER */
