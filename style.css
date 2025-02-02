@@ -723,7 +723,7 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 0;
+        margin-right: 0;
     }
     
     .whatsapp-text {
