@@ -704,9 +704,7 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        margin-right: 0;
         right: 0;
-        padding: 0px;
     }
     
     .whatsapp-text {
@@ -720,10 +718,6 @@ section {
     }
 }
 
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
 
 /* FOOTER */
 .footer {
