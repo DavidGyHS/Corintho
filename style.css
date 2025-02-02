@@ -169,36 +169,28 @@ body {
     top: 0;
     width: 100%;
     background: rgb(22, 22, 22);
-    padding: 15px 20px;
+    padding: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Logo o marca */
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
 }
 
 /* Contenedor del menú */
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centrado en desktop */
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px; /* Aumentado el espacio entre elementos */
     margin: 0;
-    padding: 0;
+    padding: 15px 0;
     align-items: center;
 }
 
@@ -245,6 +237,7 @@ body {
     cursor: pointer;
     padding: 10px;
     z-index: 1001;
+    margin-right: 15px;
 }
 
 .menu-toggle span {
@@ -264,6 +257,11 @@ section {
 
 /* Media queries para móviles */
 @media screen and (max-width: 768px) {
+    .nav-container {
+        justify-content: flex-end; /* Alinear el botón a la derecha en móvil */
+        padding: 10px;
+    }
+
     .menu-toggle {
         display: block;
     }
@@ -448,16 +446,36 @@ section {
     text-align: left;
 }
 
-/* Media queries para ajustes específicos en móviles */
+/* Ajustes específicos para el carrusel en móvil */
 @media screen and (max-width: 768px) {
     .carousel {
-        aspect-ratio: 3/4;
-        margin: 0 8px;
+        height: auto;
+        aspect-ratio: auto;
+        padding: 20px 0;
     }
 
     .carousel-images img {
-        aspect-ratio: 3/4;
-        object-fit: contain;
+        width: 90vw; /* Ancho relativo a la ventana */
+        height: auto;
+        max-height: 80vh; /* Altura máxima relativa a la ventana */
+        object-fit: contain; /* Asegura que la imagen se muestre completa */
+        aspect-ratio: auto; /* Permite mantener la proporción original */
+    }
+
+    .carousel-images {
+        gap: 10px; /* Reduce el espacio entre imágenes en móvil */
+        align-items: center; /* Centra verticalmente las imágenes */
+        padding: 0 5vw; /* Añade un pequeño padding a los lados */
+    }
+
+    /* Ajusta los dots para mejor visibilidad en móvil */
+    .carousel-dots {
+        bottom: 5px;
+    }
+
+    .carousel-dots .dot {
+        width: 10px;
+        height: 10px;
     }
 }
 

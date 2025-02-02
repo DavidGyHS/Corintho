@@ -1,3 +1,72 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar');
+    const navList = document.querySelector('.navbar ul');
+    const navLinks = document.querySelectorAll('.navbar ul li a');
+
+    // Función para cerrar el menú
+    function closeMenu() {
+        menuToggle.classList.remove('active');
+        navList.classList.remove('active');
+        navbar.classList.remove('menu-open');
+        document.body.style.overflow = '';
+    }
+
+    // Toggle del menú hamburguesa
+    menuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navList.classList.toggle('active');
+        navbar.classList.toggle('menu-open');
+        
+        // Prevenir scroll cuando el menú está abierto
+        if (this.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Cerrar menú al hacer click fuera
+    document.addEventListener('click', function(e) {
+        if (navList.classList.contains('active') && 
+            !navbar.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Cerrar menú al redimensionar la ventana
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        }, 250);
+    });
+
+    // Cambiar color de la barra de navegación al hacer scroll
+    function updateNavbar() {
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > 50) {
+            navbar.style.background = 'rgba(22, 22, 22, 0.95)';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgb(22, 22, 22)';
+            navbar.style.boxShadow = 'none';
+        }
+    }
+
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar();
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector('.carousel');
     const carouselImages = document.querySelector('.carousel-images');
@@ -85,36 +154,63 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.head.appendChild(styleSheet);
 
-    // Touch events para móviles
+    // Código de touch para móviles
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let initialTransform = 0;
+    let isDragging = false;
+
     carousel.addEventListener('touchstart', (e) => {
+        isDragging = true;
         touchStartX = e.touches[0].clientX;
-        stopAutoSlide();
+        initialTransform = getTransformValue();
+        stopAutoSlide(); // Detener el autoSlide mientras se hace touch
+        carouselImages.style.transition = 'none';
     }, { passive: true });
 
     carousel.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        
         touchEndX = e.touches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        
+        // Aplicar el arrastre con límites
+        carouselImages.style.transform = `translateX(${initialTransform + diff}px)`;
     }, { passive: true });
 
     carousel.addEventListener('touchend', () => {
-        const touchDiff = touchStartX - touchEndX;
-        const minSwipeDistance = 50;
+        if (!isDragging) return;
+        isDragging = false;
 
-        if (Math.abs(touchDiff) > minSwipeDistance) {
-            if (touchDiff > 0 && currentIndex < images.length - 1) {
-                // Deslizar hacia la izquierda
-                goToImage(currentIndex + 1);
-            } else if (touchDiff < 0 && currentIndex > 0) {
-                // Deslizar hacia la derecha
-                goToImage(currentIndex - 1);
+        const swipeDistance = touchEndX - touchStartX;
+        const threshold = 50; // Distancia mínima para considerar un swipe
+
+        if (Math.abs(swipeDistance) > threshold) {
+            if (swipeDistance > 0 && currentIndex > 0) {
+                // Swipe derecha -> anterior imagen
+                currentIndex--;
+            } else if (swipeDistance < 0 && currentIndex < images.length - 1) {
+                // Swipe izquierda -> siguiente imagen
+                currentIndex++;
             }
         }
-        startAutoSlide();
+
+        carouselImages.style.transition = 'transform 1s ease-in-out';
+        updateCarousel();
+        startAutoSlide(); // Reiniciar el autoSlide después del touch
     });
-    
+
+    // Función auxiliar para obtener el valor actual de transform
+    function getTransformValue() {
+        const style = window.getComputedStyle(carouselImages);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        return matrix.m41; // Valor X de la transformación
+    }
     // Inicialización
     updateCarousel();
     startAutoSlide();
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const wordElement = document.querySelector('.word');
