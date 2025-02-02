@@ -663,7 +663,7 @@ section {
 .whatsapp-button {
     position: fixed;
     bottom: 40px;
-    right: 20px; /* Reducido de 40px a 20px */
+    right: 40px;
     display: flex;
     align-items: center;
     background-color: #25D366;
@@ -674,10 +674,8 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     z-index: 1000;
-    /* Añadir estas propiedades */
-    max-width: calc(100% - 40px); /* Evita que el botón se salga de la pantalla */
-    box-sizing: border-box; /* Incluye padding en el ancho total */
 }
+
 .whatsapp-button:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -716,19 +714,17 @@ section {
 @media (max-width: 768px) {
     .whatsapp-button {
         bottom: 20px;
-        right: 0px; /* Reducido a 10px */
-        padding: 8px; /* Reducido el padding */
-        justify-content: center; /* Centra el ícono */
+        right: 0;
     }
     
     .whatsapp-text {
-        display: none;
+        display: none; /* Oculta el texto en móviles */
     }
     
     .whatsapp-icon {
-        right: 0px; /* Elimina el margen */
-        width: auto; /* Ancho fijo del ícono */
-        height: 25px; /* Alto fijo del ícono */
+        right: 0;
+        width: auto;
+        height: 25px;
     }
 }
 
