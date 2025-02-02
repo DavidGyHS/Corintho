@@ -729,7 +729,7 @@ section {
     }
     
     .whatsapp-icon {
-        margin: 0; /* Elimina el margen */
+        margin-right: 0; /* Elimina el margen */
         width: auto; /* Ancho fijo del ícono */
         height: 25px; /* Alto fijo del ícono */
     }
