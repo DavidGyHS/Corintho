@@ -718,8 +718,6 @@ section {
         bottom: 20px;
         right: 0px; /* Reducido a 10px */
         padding: 8px; /* Reducido el padding */
-        width: 40px; /* Ancho fijo para móviles */
-        height: 40px; /* Alto fijo para móviles */
         justify-content: center; /* Centra el ícono */
     }
     
