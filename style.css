@@ -237,11 +237,10 @@ section {
     position: relative;
     width: 100%;
     max-width: 1700px;
-    height: 874px;
+    height: 800px;
     margin: 0 auto;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ 
     background-color: #fff; /* Mismo color que el borde de las imágenes */
     display: flex; /* Agregado para centrado vertical */
     align-items: center; /* Centrado vertical */
@@ -298,7 +297,7 @@ section {
 .changing-text {
     text-align: center;
     font-size: 2rem;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 20px;
     font-weight: 500;
     /* Aseguramos que el contenedor no cambie de tamaño */
@@ -318,6 +317,18 @@ section {
     /* Aseguramos que el cambio de palabras no afecte el layout */
     min-width: 200px; /* Ajusta este valor según la palabra más larga */
     text-align: left;
+}
+
+/* Media queries para ajustes específicos en móviles */
+@media screen and (max-width: 768px) {
+    .carousel {
+        aspect-ratio: 3/4;
+        margin: 0 10px;
+    }
+
+    .carousel-images img {
+        aspect-ratio: 3/4;
+    }
 }
 
 /* Sección de SERVICIOS */

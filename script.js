@@ -71,10 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener para resize
     window.addEventListener('resize', updateCarousel);
 
+    /*
     // Event listeners para mouseenter/mouseleave
     carousel.addEventListener('mouseenter', stopAutoSlide);
     carousel.addEventListener('mouseleave', startAutoSlide);
-
+    */
     // Agregar estilos de cursor para las imágenes
     const styleSheet = document.createElement('style');
     styleSheet.textContent = `
@@ -116,53 +117,80 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Función para verificar si un elemento está en el viewport
-    function isElementInViewport(el) {
+    // Función para verificar si un elemento está parcialmente en el viewport
+    function isElementPartiallyVisible(el, threshold = 0.2) {
         const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        // Calcula qué tan visible está el elemento
+        const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+        const elementHeight = rect.bottom - rect.top;
+        const visibilityRatio = visibleHeight / elementHeight;
+
+        // Devuelve true si el elemento está al menos parcialmente visible
         return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            rect.top < windowHeight &&
+            rect.bottom > 0 &&
+            visibilityRatio > threshold
         );
     }
 
-    // Función para manejar la animación de entrada
-    function handleScrollAnimation() {
+    // Función para manejar la animación de entrada con Intersection Observer
+    function setupScrollAnimations() {
         const serviceCategories = document.querySelectorAll('.service-category');
         
+        const options = {
+            root: null, // usar el viewport
+            rootMargin: '0px', // sin margen adicional
+            threshold: 0.2 // trigger cuando el 20% del elemento es visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Opcional: dejar de observar el elemento una vez que se ha animado
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
         serviceCategories.forEach(category => {
-            if (isElementInViewport(category)) {
+            observer.observe(category);
+            
+            // Comprobar si el elemento ya está visible al cargar
+            if (isElementPartiallyVisible(category)) {
                 category.classList.add('visible');
+                observer.unobserve(category);
             }
         });
     }
 
-    // Evento scroll para las animaciones
-    window.addEventListener('scroll', handleScrollAnimation);
-    
-    // Llamada inicial para elementos que ya están en viewport
-    handleScrollAnimation();
-
-    // Hover effect para las imágenes con parallax
-    const serviceImages = document.querySelectorAll('.service-image');
-    
-    serviceImages.forEach(image => {
-        image.addEventListener('mousemove', (e) => {
-            const rect = image.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const xPercent = (x / rect.width - 0.5) * 20;
-            const yPercent = (y / rect.height - 0.5) * 20;
-            
-            image.style.transform = `perspective(1000px) rotateX(${yPercent}deg) rotateY(${xPercent}deg) scale3d(1.05, 1.05, 1.05)`;
-        });
+    // Configuración del efecto parallax en hover
+    function setupParallaxEffect() {
+        const serviceImages = document.querySelectorAll('.service-image');
         
-        image.addEventListener('mouseleave', () => {
-            image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        serviceImages.forEach(image => {
+            image.addEventListener('mousemove', (e) => {
+                const rect = image.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const xPercent = (x / rect.width - 0.5) * 20;
+                const yPercent = (y / rect.height - 0.5) * 20;
+                
+                image.style.transform = `perspective(1000px) rotateX(${yPercent}deg) rotateY(${xPercent}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            
+            image.addEventListener('mouseleave', () => {
+                image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
         });
-    });
+    }
+
+    // Inicializar todas las funcionalidades
+    setupScrollAnimations();
+    setupParallaxEffect();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
