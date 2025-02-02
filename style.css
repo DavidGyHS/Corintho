@@ -660,9 +660,7 @@ section {
     .about-card h3 {
         margin-top: 5px;
     }
-    .about-cards {
-        gap: 10px;
-    }
+
     .about-card {
         padding: 5px;
     }
